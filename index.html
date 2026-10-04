@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>محمد & فاطمة | دعوة زفاف</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;min-height:100vh;
+font-family:Arial,Tahoma,sans-serif;
+background:radial-gradient(circle at top,#fffaf2,#f8e6df 55%,#efd2d5);
+color:#51343f
+}
+.wrap{min-height:100vh;display:grid;place-items:center;padding:25px}
+.card{
+width:min(760px,100%);
+padding:45px 24px 30px;
+text-align:center;
+background:rgba(255,255,255,.78);
+border:1px solid rgba(190,145,85,.4);
+border-radius:30px;
+box-shadow:0 25px 70px rgba(92,53,61,.18);
+overflow:hidden
+}
+.kicker{color:#a46b55;font-weight:bold;font-size:14px}
+.names{
+font-size:clamp(45px,11vw,78px);
+font-weight:bold;
+margin:12px 0;
+color:#8d5360
+}
+.amp{color:#bd9456}
+.invite{font-size:21px;font-weight:bold;margin:12px 0 28px}
+.line{
+height:1px;
+background:linear-gradient(90deg,transparent,#bd9456,transparent);
+margin:25px 0
+}
+.info{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.pill{
+padding:13px 18px;
+border-radius:16px;
+background:#fffaf6;
+border:1px solid #ead3c2;
+min-width:145px
+}
+.label{display:block;font-size:12px;color:#a46b55}
+.value{font-weight:bold;font-size:17px;margin-top:4px}
+.count-title{margin-top:30px;font-weight:bold}
+.count{
+display:flex;justify-content:center;gap:10px;
+direction:ltr;margin:12px 0 22px;
+flex-wrap:wrap
+}
+.unit{
+min-width:72px;padding:10px 8px;
+background:#8d5360;color:white;border-radius:14px
+}
+.num{display:block;font-size:25px;font-weight:bold}
+.txt{font-size:11px}
+.btn{
+display:inline-block;
+padding:12px 20px;
+border-radius:999px;
+text-decoration:none;
+font-weight:bold;
+margin:5px
+}
+.primary{background:#bd9456;color:white}
+.secondary{background:white;color:#8d5360;border:1px solid #e1c8b8}
+.music{margin-top:15px;font-size:13px;color:#765363}
+.footer{margin-top:28px;font-size:12px;color:#987b83}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+<main class="card">
+
+<div class="kicker">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+
+<div class="names">
+محمد <span class="amp">&amp;</span> فاطمة
+</div>
+
+<div class="invite">ندعوكم لمشاركتنا فرحة العمر</div>
+
+<div class="line"></div>
+
+<div class="info">
+<div class="pill">
+<span class="label">التاريخ</span>
+<span class="value">الأربعاء 11 / 11 / 2026</span>
+</div>
+
+<div class="pill">
+<span class="label">الوقت</span>
+<span class="value">4:00 مساءً</span>
+</div>
+
+<div class="pill">
+<span class="label">المكان</span>
+<span class="value">سيتم الإعلان عنه</span>
+</div>
+</div>
+
+<div class="count-title">متبقي على فرحتنا</div>
+
+<div class="count">
+<div class="unit">
+<span id="days" class="num">0</span>
+<span class="txt">يوم</span>
+</div>
+
+<div class="unit">
+<span id="hours" class="num">0</span>
+<span class="txt">ساعة</span>
+</div>
+
+<div class="unit">
+<span id="mins" class="num">0</span>
+<span class="txt">دقيقة</span>
+</div>
+
+<div class="unit">
+<span id="secs" class="num">0</span>
+<span class="txt">ثانية</span>
+</div>
+</div>
+
+<div>
+<a class="btn primary"
+href="https://www.google.com/maps"
+target="_blank">📍 الموقع</a>
+
+<a class="btn secondary"
+href="https://www.youtube.com/watch?v=nRowobub0Pw"
+target="_blank">🎵 ألف مبروك</a>
+</div>
+
+<div class="music">
+أغنية ألف مبروك — حسام الرسام 🎶
+</div>
+
+<div class="footer">
+وجودكم أجمل هدية لنا 🤍
+</div>
+
+</main>
+</div>
+
+<script>
+const target = new Date("2026-11-11T16:00:00+03:00").getTime();
+
+function tick(){
+let d = target - Date.now();
+
+if(d <= 0){
+document.querySelector(".count-title").textContent="اليوم فرحتنا! 🎉";
+d = 0;
+}
+
+document.getElementById("days").textContent =
+Math.floor(d/86400000);
+
+document.getElementById("hours").textContent =
+Math.floor((d%86400000)/3600000);
+
+document.getElementById("mins").textContent =
+Math.floor((d%3600000)/60000);
+
+document.getElementById("secs").textContent =
+Math.floor((d%60000)/1000);
+}
+
+tick();
+setInterval(tick,1000);
+</script>
+
+</body>
+</html>
